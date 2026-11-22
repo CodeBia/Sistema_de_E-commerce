@@ -6,11 +6,11 @@ def conectar():
     try:
         conexao = mysql.connector.connect(
             host="localhost",
-            user="bianquita",
-            password="Popos2026@mysql"
+            user="root",
+            password="root"
         )
         cursor = conexao.cursor()
-
+# Criando o banco de dados (se não existir)
         cursor.execute("SHOW DATABASES LIKE 'sistema_ecommerce'")
         existe = cursor.fetchone()
 
@@ -21,7 +21,7 @@ def conectar():
             print("Banco de dados criado com sucesso!")     
 
             cursor.execute("USE sistema_ecommerce") 
-
+# Mensagem de conexão
         if conexao.is_connected(): 
             print("MySQL conectado com sucesso!")
             return conexao, cursor
