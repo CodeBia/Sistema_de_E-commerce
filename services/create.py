@@ -1,8 +1,11 @@
+# Importam o código de outros arquivos (para não precisar rescrevê-los)
 from conexao import conectar
 from mysql.connector import Error
 
+# Criando função para criar as tabelas
 def tabelas(conexao, cursor):
     try:
+        # Usando 'SHOW DATABASES LIKE...' para sabar se existe um banco de dados com esse nome antes
         cursor.execute("SHOW TABLES LIKE 'clientes'")
         existe = cursor.fetchone()
         if existe:
@@ -20,6 +23,8 @@ def tabelas(conexao, cursor):
 
     except:
         print("Erro ao criar a tabela 'clientes'")
+
+ # O CHECK usado para cpf, preço e estoque funciona como um filtro de segurança para que dados inválidos ou mal formatados nunca sejam gravados na tabela
 
     try:
         cursor.execute("SHOW TABLES LIKE 'produtos'")
@@ -60,7 +65,7 @@ def tabelas(conexao, cursor):
         
     except:
         print("Erro ao criar a tabela 'pedidos'")
-       
+# Funciona para que as funções sejam chamadas e funcionem        
 conexao, cursor = conectar()
 if conexao and cursor:
     tabelas(conexao, cursor)
