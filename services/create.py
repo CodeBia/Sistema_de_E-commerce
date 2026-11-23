@@ -1,5 +1,5 @@
 # Importam o código de outros arquivos (para não precisar rescrevê-los)
-from services.conexao import conectar
+from conexao import conectar
 from mysql.connector import Error
 
 # Criando função para criar as tabelas
@@ -56,7 +56,9 @@ def tabelas(conexao, cursor):
                 cpf CHAR(14),
                 id_produtos INT,
                 FOREIGN KEY (cpf) REFERENCES clientes(cpf),
-                FOREIGN KEY (id_produtos) REFERENCES produtos(id_produtos)
+                FOREIGN KEY (id_produtos) REFERENCES produtos(id_produtos),                
+                quantidade INT NOT NULL CHECK (quantidade > 0),
+                data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )"""
             cursor.execute(tabela3)
             conexao.commit()
@@ -64,6 +66,7 @@ def tabelas(conexao, cursor):
         
     except:
         print("Erro ao criar a tabela 'pedidos'")
+
 # Funciona para que as funções sejam chamadas e funcionem       
 conexao, cursor = conectar()
 if conexao and cursor:
