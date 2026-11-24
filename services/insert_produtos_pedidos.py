@@ -13,6 +13,7 @@ def inserir_produto(conexao, cursor):
         valores = (nome, categoria, preco, estoque)
 
         cursor.execute(sql, valores)
+
         conexao.commit()
         print("Produto inserido com sucesso!")
     except Error as e:
@@ -30,6 +31,7 @@ def inserir_cliente(conexao, cursor):
         valores = (cpf, nome, endereco, email)
 
         cursor.execute(sql, valores)
+
         conexao.commit()
         print("Cliente inserido com sucesso!")
     except Error as e:
@@ -46,6 +48,7 @@ def inserir_pedido(conexao, cursor):
         valores = (cpf, id_produtos, quantidade)
 
         cursor.execute(sql, valores)
+
         conexao.commit()
         print("Pedido inserido com sucesso!")
     except Error as e:
