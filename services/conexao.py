@@ -30,7 +30,6 @@ def conectar():
     except Error as erro:
         print(f"Erro ao conectar ao MySQL {erro}")
    
-    return None, None
 # Vai testar se a conexão com o banco está funcionando e a encerra logo em seguida
 conexao, cursor = conectar()
 if conexao and cursor:
