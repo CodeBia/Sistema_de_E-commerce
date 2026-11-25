@@ -3,14 +3,10 @@ from mysql.connector import Error
 
 def inserir_produto(conexao, cursor):
     try:
-        nome = "calça"
-        categoria = "roupas"
-        preco = 130.00
-        estoque = 84
+        valores = ["impressora", "eletrônico", 718.25, 130]
+            
 
-        sql = """INSERT INTO produtos (nome, categoria, preco, estoque)
-                 VALUES (%s, %s, %s, %s)"""
-        valores = (nome, categoria, preco, estoque)
+        sql = """INSERT INTO produtos (nome, categoria, preco, estoque) VALUES (%s, %s, %s, %s)"""
 
         cursor.execute(sql, valores)
 
@@ -21,14 +17,9 @@ def inserir_produto(conexao, cursor):
 
 def inserir_cliente(conexao, cursor):
     try:
-        cpf = "666.666.666-66"
-        nome = "Beatriz"
-        endereco = "Rua P, 52"
-        email = "beatriz@email.com"
+        valores = ["888.888.888-88", "Amanda", "Rua D, 28", "amanda@email.com"]
 
-        sql = """INSERT IGNORE INTO clientes (cpf, nome, endereco, email)
-                 VALUES (%s, %s, %s, %s)"""
-        valores = (cpf, nome, endereco, email)
+        sql = """INSERT IGNORE INTO clientes (cpf, nome, endereco, email) VALUES (%s, %s, %s, %s)"""
 
         cursor.execute(sql, valores)
 
@@ -39,16 +30,13 @@ def inserir_cliente(conexao, cursor):
 
 def inserir_pedido(conexao, cursor):
     try:
-        cpf = "666.666.666-66"
-        id_produtos = 6
-        quantidade = 2
-
-        sql = """INSERT INTO pedidos (cpf, id_produtos, quantidade)
-                 VALUES (%s, %s, %s)"""
-        valores = (cpf, id_produtos, quantidade)
+        valores = ["888.888.888-88", 8, 1]
+        
+        sql = """INSERT INTO pedidos (cpf, id_produtos, quantidade) 
+                    VALUES (%s, %s, %s)"""
 
         cursor.execute(sql, valores)
-
+    
         conexao.commit()
         print("Pedido inserido com sucesso!")
     except Error as e:
