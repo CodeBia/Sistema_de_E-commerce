@@ -6,9 +6,9 @@ def conectar():
     try:
         conexao = mysql.connector.connect(
             host="localhost",
-            user="bianquita",
-            password="Popos2026@mysql", 
-            database="sistema_ecommerce"
+            user="root",
+            password="12345678",
+            database= "sistema_ecommerce"
         )
         cursor = conexao.cursor()
 # Criando o banco de dados (se não existir)
