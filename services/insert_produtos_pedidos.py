@@ -17,7 +17,7 @@ def inserir_produto(conexao, cursor):
 
 def inserir_cliente(conexao, cursor):
     try:
-        valores = ["888.888.888-88", "Amanda", "Rua D, 28", "amanda@email.com"]
+        valores = ["777.777.777-77", "Amanda", "Rua D, 28", "amanda@email.com"]
 
         sql = """INSERT IGNORE INTO clientes (cpf, nome, endereco, email) VALUES (%s, %s, %s, %s)"""
 
@@ -30,7 +30,7 @@ def inserir_cliente(conexao, cursor):
 
 def inserir_pedido(conexao, cursor):
     try:
-        valores = ["888.888.888-88", 8, 1]
+        valores = ["777.777.777-77", 7, 1]
         
         sql = """INSERT INTO pedidos (cpf, id_produtos, quantidade) 
                     VALUES (%s, %s, %s)"""
