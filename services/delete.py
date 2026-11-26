@@ -8,12 +8,12 @@ def deletar_produto(id_produto, cpf):
         cursor.execute("DELETE FROM pedidos WHERE id_produtos = %s", (id_produto,))
         cursor.execute("DELETE FROM produtos WHERE id_produtos = %s",(id_produto,))
         cursor.execute("DELETE FROM clientes WHERE cpf = %s",(cpf,))
-        conexao.commit()
 
+        conexao.commit()
         if cursor.rowcount > 0:
             print("Deletado!")
         else:
-            print("Nenhum produto com esse ID.")
+            print("Não existe um produto com esse ID.")
 
     except Exception as erro:
         print("Erro ao deletar:", erro)
