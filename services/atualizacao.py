@@ -7,9 +7,9 @@ def atualizar_produto(conexao, cursor):
     WHERE id_produtos = %s
     """
     try:
-        cursor.execute(sql, (3589.90, 65, 3))
+        cursor.execute(sql, (123.90, 80, 6))
         conexao.commit()
-        print("Produto atualizado com sucesso!")
+        print("Produto atualizado com sucesso!", {cursor.rowcount})
     except Exception as e:
         print(f"Erro ao atualizar produto: {e}")
 
@@ -20,7 +20,7 @@ def atualizar_cliente(conexao, cursor):
     WHERE cpf = %s
     """
     try:
-        cursor.execute(sql, ("André", "andre@gmail.com", "777.777.777-77"))
+        cursor.execute(sql, ("Camila", "camila@gmail.com", "666.666.666-66"))
         conexao.commit()
         print("Cliente atualizado com sucesso!", {cursor.rowcount})
     except Exception as e:
