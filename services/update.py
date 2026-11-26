@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-def atualizar():
-    
-=======
 from conexao import conectar
 from mysql.connector import Error
 
@@ -30,4 +26,7 @@ def atualizar_aluno(id_aluno, novos_dados):
             atualizar_aluno (conexao, cursor)
             cursor.close()
             conexao.close()
+<<<<<<< HEAD
 >>>>>>> atualizacao
+=======
+>>>>>>> 50c05acae5d8cfe5f9372f1e3dc7e07384cb76c4
